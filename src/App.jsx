@@ -11,11 +11,18 @@ function App() {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
   }
 
+  function deleteTodo(todoIndex) {
+    const nonDeletedTodos = todos.filter((_, index) => index != todoIndex);
+    setTodos(nonDeletedTodos);
+  }
+
+  function editTodo() {}
+
   return (
     <>
       <Header />
       <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} deleteTodo={deleteTodo} />
     </>
   );
 }

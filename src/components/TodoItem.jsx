@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, deleteTodo }) => {
   return (
     <div className="flex justify-between items-center bg-white shadow-md p-4 my-2 rounded-lg border border-gray-200">
       <div className="text-lg text-gray-800">{todo}</div>
@@ -8,7 +8,10 @@ const TodoItem = ({ todo }) => {
         <button className="px-3 py-1 text-sm bg-yellow-400 text-white rounded hover:bg-yellow-500 transition">
           Edit
         </button>
-        <button className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition">
+        <button
+          className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition"
+          onClick={deleteTodo}
+        >
           Delete
         </button>
       </div>
