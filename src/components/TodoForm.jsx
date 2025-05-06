@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const TodoForm = () => {
+const TodoForm = ({ addTodo }) => {
+  const [task, setTask] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTodo(task);
+    setTask("");
+  };
+
   return (
     <>
       <div className="border border-black mx-4 md:mx-24 rounded-lg bg-pink-50 mt-4 p-4">
-        <form className="max-w-xl mx-auto flex flex-col gap-4 ">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-xl mx-auto flex flex-col gap-4"
+        >
           <div className="flex flex-col">
             <label htmlFor="task" className="text-xl mb-1">
               Task:
@@ -14,6 +25,8 @@ const TodoForm = () => {
               type="text"
               placeholder="Enter you task"
               className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
             />
           </div>
           <button
