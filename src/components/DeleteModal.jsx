@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeleteModal = ({ isOpen, onClose, onDelte }) => {
+const DeleteModal = ({ isOpen, onClose, onDelete }) => {
   if (!isOpen) return null;
 
   return (
@@ -11,7 +11,7 @@ const DeleteModal = ({ isOpen, onClose, onDelte }) => {
         </h2>
         <div className="flex justify-around">
           <button
-            onClick={onDelte}
+            onClick={onDelete}
             className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200"
           >
             Yes
