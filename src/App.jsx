@@ -16,13 +16,17 @@ function App() {
     setTodos(nonDeletedTodos);
   }
 
-  function editTodo() {}
+  function updateTodo(index, updatedText) {
+    setTodos((prevTodo) =>
+      prevTodo.map((todo, i) => (i === index ? updatedText : todo))
+    );
+  }
 
   return (
     <>
       <Header />
       <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </>
   );
 }
